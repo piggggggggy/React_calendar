@@ -22,8 +22,6 @@ const initialState = {
 
 
 //reducer
-
-
 export default handleActions({
     [DATE_NOW]: (state, action) => produce(state, (draft) => {
         

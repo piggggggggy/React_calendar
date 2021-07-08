@@ -6,12 +6,17 @@ import styled from "styled-components";
 
 const Date = (props) => {
 
-	const {text, color} = props;
-
+	const {text, color, color2, color3} = props;
+	const styles = {
+		color: color,
+		color2: color2,
+		color3: color3,
+	}
+	
 	return (
 		<React.Fragment>
 			<DateBox>
-				<DateNumber color={color}>{text}</DateNumber>
+				<DateNumber {...styles}>{text}</DateNumber>
 			</DateBox>
 		</React.Fragment>
 	)
@@ -21,7 +26,9 @@ const Date = (props) => {
 
 Date.defaultProps = {
 	text: "",
-	color: false,
+	color: '',
+	color2: '',
+	color3: '',
 }
 
 const DateBox = styled.div`
@@ -35,7 +42,10 @@ const DateBox = styled.div`
 
 
 const DateNumber = styled.p`
-	color: ${(props) => (props.color? "lightgray":"black")};
+
+	${(props) => (`color: ${props.color2}`)};
+	${(props) => (`color: ${props.color3}`)};
+	${(props) => (`color: ${props.color}`)};
 `;
 
 

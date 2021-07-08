@@ -28,11 +28,15 @@ const Body = (props) => {
 					let startDate = preLast.clone().add(idx, 'd').subtract(firstDay, 'd');
 					let startOne = first.clone().add(idx, 'd').subtract(firstDay, 'd');
 					
+
+
 					if(idx < firstDay || idx > 40-lastDay){
 						return (
 							<Date 
 							key={idx} 
-							color
+							color='lightgray'
+							color2={idx%7 === 0? 'red': ''}
+							color3={idx%7 === 6? 'blue': ''}
 							text={idx < firstDay? startDate.format("D"): startOne.format("D")}
 							/>
 						)
@@ -40,6 +44,8 @@ const Body = (props) => {
 						return (
 							<Date 
 							key={idx} 
+							color2={idx%7 === 0? 'red': ''}
+							color3={idx%7 === 6? 'blue': ''}
 							text={idx < firstDay? startDate.format("D"): startOne.format("D")}
 							/>
 						)
@@ -75,7 +81,7 @@ const Body = (props) => {
 				<Grid is_flex padding="0px">
 					{days.map((d, idx) => (
 						<Days key={idx} text={d}></Days>
-					))};
+					))}
 				</Grid>
 				{DateRender()}
 			</BodyContainer>
