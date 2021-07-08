@@ -19,7 +19,7 @@ const Body = (props) => {
 	// const lastMonth = current.clone().subtract(1,"m");
 	// const preLast = lastMonth.clone().endOf("month");
 
-	const now = useSelector(state => state.date.now);
+	const now = useSelector(state => state.date.check);
 
 	const DateRender = () => {
 		

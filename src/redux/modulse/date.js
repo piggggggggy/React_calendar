@@ -16,7 +16,7 @@ const setCur = createAction(DATE_CUR, (date)=>({date}));
 
 // initialState
 const initialState = {
-  now: moment(),
+  check: moment(),
   current: moment(),
 };
 
@@ -25,7 +25,7 @@ const initialState = {
 //reducer
 export default handleActions({
   [DATE_NOW]: (state, action) => produce(state, (draft) => {
-        
+    draft.check = action.payload.check;
   }),
 
   [DATE_CUR]: (state, action) => produce(state, (draft) => {
