@@ -10,7 +10,7 @@ const DATE_NOW = "date/DATE_NOW";
 
 
 // action creator
-const setDate = createAction(DATE_NOW, (date) => ({date}));
+const setDate = createAction(DATE_NOW, (now) => ({now}));
 
 
 

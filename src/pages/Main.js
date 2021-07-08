@@ -1,4 +1,5 @@
 import React from "react";
+import Body from "../components/Body";
 
 const Main = (props) => {
 
@@ -8,6 +9,7 @@ const Main = (props) => {
 			Body /
 				Day /
 				Date /
+			<Body/>
 		</React.Fragment>
 	);
 
