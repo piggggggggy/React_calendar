@@ -36,8 +36,8 @@ const Btn = (props) => {
 
 Btn.defaultProps = {
 	is_circle: false,
-	size: '50px',
-	fontsize: '14px',
+	size: '200px',
+	fontsize: '20px',
 	margin: '5px',
 	text: '',
 	_onClick: () => {},
@@ -47,6 +47,7 @@ Btn.defaultProps = {
 
 const RectangleBtn = styled.button`
 	width: ${(props) => props.size};
+	height: 50px;
 	font-size: ${(props) => props.fontsize};
 	margin: ${(props) => props.margin};
 	${(props) => (props.bg? `background-color: ${props.bg}` : `background-color: yellow`)};

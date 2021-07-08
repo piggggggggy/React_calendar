@@ -6,6 +6,7 @@ import Title from "../components/Title";
 import { Grid } from "../elements";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 // import { styled } from "@material-ui/core";
+import { history } from "../redux/configStore";
 
 const Main = (props) => {
 
@@ -16,7 +17,7 @@ const Main = (props) => {
 				<Header/>
 				<Body/>
 			</Grid>
-			<AddBox>
+			<AddBox onClick={() => {history.push('/add')}}>
 				<AddCircleIcon style={{ fontSize: 70}}/>
 			</AddBox>
 		</React.Fragment>

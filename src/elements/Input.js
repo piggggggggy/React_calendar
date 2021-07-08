@@ -8,9 +8,9 @@ const Input = (props) => {
 
 	return (
 		<React.Fragment>
-			<Grid is_flex_colunm>
-				<Text margin="0px">{label}</Text>
-				<Input type={type} placeholder={placeholder} onChange={_onChange}/>
+			<Grid is_flex_column>
+				<Text bold size="30px" margin="0px">{label}</Text>
+				<InputBox type={type} placeholder={placeholder} onChange={_onChange}/>
 			</Grid>
 		</React.Fragment>
 	);
@@ -25,7 +25,10 @@ Input.defaultProps = {
 };
 
 const InputBox = styled.input`
-	width: 100%;
+	font-size: 20px;
+	width: 70%;
+	height: 50px;
+	padding: 8px;
 	border: none;
 	border-bottom: 2px solid #212121;
 	box-sizing: border-box;
