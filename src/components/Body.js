@@ -10,7 +10,9 @@ import moment from "moment";
 
 const Body = (props) => {
 
-	const now = moment();
+	const current = useSelector(state => state.date.current);
+
+	const now = current;
 	const first = now.clone().startOf("month");
 	const last = now.clone().endOf("month");
 	const firstDay = first.clone().day();
@@ -25,12 +27,12 @@ const Body = (props) => {
 			<>
 				{[...Array(42)].map((x, idx) => {
 					
-					let startDate = preLast.clone().add(idx, 'd').subtract(firstDay, 'd');
+					let startDate = preLast.clone().add(idx+1, 'd').subtract(firstDay, 'd');
 					let startOne = first.clone().add(idx, 'd').subtract(firstDay, 'd');
-					
+					let lastDate = last.format('D');
 
 
-					if(idx < firstDay || idx > 40-lastDay){
+					if(idx < firstDay || idx > firstDay+Number(lastDate)-1){
 						return (
 							<Date 
 							key={idx} 
