@@ -12,14 +12,14 @@ const Body = (props) => {
 
 	const current = useSelector(state => state.date.current);
 
-	const now = current;
-	const first = now.clone().startOf("month");
-	const last = now.clone().endOf("month");
+	const first = current.clone().startOf("month");
+	const last = current.clone().endOf("month");
 	const firstDay = first.clone().day();
-	const lastDay = last.clone().day();
-	const lastMonth = now.clone().subtract(1,"m");
-	const preLast = lastMonth.clone().endOf("month");
+	// const lastDay = last.clone().day();
+	// const lastMonth = current.clone().subtract(1,"m");
+	// const preLast = lastMonth.clone().endOf("month");
 
+	const now = useSelector(state => state.date.now);
 
 	const DateRender = () => {
 		
@@ -27,47 +27,35 @@ const Body = (props) => {
 			<>
 				{[...Array(42)].map((x, idx) => {
 					
-					let startDate = preLast.clone().add(idx+1, 'd').subtract(firstDay, 'd');
-					let startOne = first.clone().add(idx, 'd').subtract(firstDay, 'd');
+					let startDate = first.clone().add(idx, "d").subtract(firstDay, 'd');
 					let lastDate = last.format('D');
+					let today = now.format("YYYYMMDD") === startDate.format("YYYYMMDD");
+					console.log(today);
+
 
 
 					if(idx < firstDay || idx > firstDay+Number(lastDate)-1){
 						return (
 							<Date 
+							today={today}
 							key={idx} 
 							color='lightgray'
 							color2={idx%7 === 0? 'red': ''}
 							color3={idx%7 === 6? 'blue': ''}
-							text={idx < firstDay? startDate.format("D"): startOne.format("D")}
+							text={startDate.format('D')}
 							/>
 						)
 					}else{
 						return (
 							<Date 
+							today={today}
 							key={idx} 
 							color2={idx%7 === 0? 'red': ''}
 							color3={idx%7 === 6? 'blue': ''}
-							text={idx < firstDay? startDate.format("D"): startOne.format("D")}
+							text={startDate.format('D')}
 							/>
 						)
 					}
-					
-
-
-					// if(idx < firstDay){
-					// 	return (
-					// 		<Date key={idx} color text={startDate.format("D")}/>
-					// 	)
-					// }else if(idx > 40-lastDay){
-					// 	return (
-					// 		<Date key={idx} color text={startOne.format("D")}/>
-					// 	)
-					// }else{
-					// 	return (
-					// 		<Date key={idx} text={startOne.format("D")}/>
-					// 	)
-					// }
 				})}
 			</>
 		);

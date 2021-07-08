@@ -11,7 +11,7 @@ const Days = (props) => {
 	return (
 		<React.Fragment>
 			<Day>
-				<Text>{text}</Text>
+				<Text bold size="20px">{text}</Text>
 			</Day>
 		</React.Fragment>
 	)
