@@ -46,6 +46,8 @@ const DateNumber = styled.p`
 	${(props) => (`color: ${props.color2}`)};
 	${(props) => (`color: ${props.color3}`)};
 	${(props) => (`color: ${props.color}`)};
+	font-size: 20px;
+	font-weight: bold;
 `;
 
 

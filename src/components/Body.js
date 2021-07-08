@@ -96,6 +96,7 @@ const BodyContainer = styled.div`
 	padding: 0px;
 	display: flex;
 	flex-wrap: wrap;
+	border: 1px solid black;
 
 `;
 
